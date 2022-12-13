@@ -1,0 +1,19 @@
+{
+  "name": "mentoria-api-nodejs",
+  "version": "1.0.0",
+  "description": "mentoria nodejs backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurimsousa/mentoria-api-nodejs.git"
+  },
+  "author": "yuri moreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurimsousa/mentoria-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/yurimsousa/mentoria-api-nodejs#readme"
+}
