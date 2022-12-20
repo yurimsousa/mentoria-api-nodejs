@@ -1,5 +1,5 @@
 const app = require("./api/localApi/app");
-const port = normalizaPort('3000');
+const port = normalizaPort('3001');
 function normalizaPort(val) {
     const port = parseInt(val, 10);
     if (isNaN(port)) {
