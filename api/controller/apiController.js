@@ -9,5 +9,9 @@ class ApiController{
     calcularMediaAluno(num1,num2,num3,num4,num5){
         return apiService.calcularMediaAluno(num1,num2,num3,num4,num5);
      }
+     
+    verificarNome(nome){
+        return apiService.verificarNome(nome);
+     }
 }
 module.exports=ApiController;

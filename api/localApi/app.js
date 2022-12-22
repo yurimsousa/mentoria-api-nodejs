@@ -66,4 +66,14 @@ app.get("/aluno/:num1/:num2/:num3/:num4/:num5", function (resquest, response) {
     return response.json(result);
 });
 
+
+app.get("/verificar-nome", function (request, response) {
+    const nome= request.query.nome;
+    const cpf= request.query.cpf;
+    const estadoCivil= request.estadoCivil;
+
+    const result = apiController.verificarNome(nome);
+    return response.json(result);
+});
+
 module.exports = app;

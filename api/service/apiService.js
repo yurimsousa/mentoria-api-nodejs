@@ -16,5 +16,15 @@ class ApiService {
             return `Media: ${med} Estude mais! você foi Reprovado`;
         }
     }
+
+    verificarNome(nome) {
+        const nomeFormatado= nome.toString();
+        console.log("nome formatado", nomeFormatado.toLowerCase());
+        if (nomeFormatado.toLowerCase() === "clodomir") {
+            return "Nome do usuario correto"
+        } else {
+            return "Nome do usuario incorreto"
+        }
+    }
 }
 module.exports = ApiService;
