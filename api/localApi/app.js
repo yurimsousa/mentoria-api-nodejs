@@ -43,6 +43,7 @@ app.get("/div/:num1/:num2", function (resquest, response){
     return response.json(mult);
 });
 
+
 app.get("/media/:num1/:num2/:num3/:num4/:num5", function (resquest, response){
     const num1 = Number(resquest.params.num1);
     const num2 = Number(resquest.params.num2);
@@ -53,6 +54,28 @@ app.get("/media/:num1/:num2/:num3/:num4/:num5", function (resquest, response){
     const result = apiController.calcularMedia(num1,num2,num3,num4,num5);
    
     return response.json(result);
+});
+
+app.get("/aluno/:num1/:num2/:num3/:num4/:num5", function (resquest,response){
+    const num1 = Number(resquest.params.num1);
+    const num2 = Number(resquest.params.num2);
+    const num3 = Number(resquest.params.num3);
+    const num4 = Number(resquest.params.num4);
+    const num5 = Number(resquest.params.num5);
+
+    const soma = num1+num2+num3+num4+num5;
+    const med  = soma/5;
+
+    if (med>=6){   
+     return response.json ("Parabéns! voce foi aprovado") ;  
+    } else if (med<=6){
+        return response.json("Estude mais! você foi Reprovado");
+    }
+    //return response.json(med);
+
+    
+    
+
 });
 
 module.exports = app;
