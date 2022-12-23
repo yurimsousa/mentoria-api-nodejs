@@ -76,4 +76,15 @@ app.get("/verificar-nome", function (request, response) {
     return response.json(result);
 });
 
+app.get("/verificar-jogador", function (request, response) {
+    const nome= request.query.nome;
+    const estadoCivil= request.query.estadoCivil;
+    const funcao= request.query.funcao;
+
+
+    const result = apiController.verificarJogador(nome, estadoCivil, funcao);
+    return response.json(result);
+});
+
+
 module.exports = app;

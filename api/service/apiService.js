@@ -26,5 +26,32 @@ class ApiService {
             return "Nome do usuario incorreto"
         }
     }
+
+    verificarJogador(nome,estadoCivil,funcao) {
+        const nomeFormatado= nome.toString();
+        const estadoCivilFormatado= estadoCivil.toString();
+        const funcaoFormatado= funcao.toString();
+        let motivo = "";
+        //console.log("nome formatado", nomeFormatado.toLowerCase());
+        if (nomeFormatado.toLowerCase() === "neymar" & estadoCivilFormatado.toLowerCase() === "solteiro" & funcaoFormatado.toLowerCase() ==="atacante" ) {
+            return "Jogador neymar esta apto"
+        } else  { 
+            if (nomeFormatado!=="neymar"){
+               motivo+=`nome esta errado ${nomeFormatado}, `; 
+            }
+            if (estadoCivilFormatado!=="solteiro"){
+                motivo+=`estado civil errado ${estadoCivilFormatado}, `;
+            }
+            if (funcaoFormatado!=="atacante"){
+                motivo+=`funcao esta errada ${funcaoFormatado}`;
+            }
+            return {
+                message:"jogador nao esta apto",
+                motivo:motivo
+            };
+        }
+    }
+
+
 }
 module.exports = ApiService;

@@ -13,5 +13,9 @@ class ApiController{
     verificarNome(nome){
         return apiService.verificarNome(nome);
      }
+     verificarJogador(nome,estadoCivil,funcao){
+      return apiService.verificarJogador(nome,estadoCivil,funcao);
+   }
+
 }
 module.exports=ApiController;
