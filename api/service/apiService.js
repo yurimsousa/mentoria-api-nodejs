@@ -52,6 +52,40 @@ class ApiService {
         }
     }
 
+    verificarCanditado(expJava,expNode,expBancoDeDados) {
+        const expjavaformatado = expJava.toString();
+        const expNodeFormatado= expNode.toString();
+        const expBnacoDeDadosFormatado= expBancoDeDados.toString();
+        let motivo = "";
+        //console.log("nome formatado", nomeFormatado.toLowerCase());
+        if (expjavaformatado.toLowerCase() === "5" && expNodeFormatado.toLowerCase() === "5" && expBnacoDeDadosFormatado.toLowerCase() ==="5" ) {
+            return "candidato preencheu os requisitos necessario"
+        } else  { 
+            if (expjavaformatado!=="5"){
+               motivo+=`experiencia menor que 5 em java ${expjavaformatado}, `; 
+            }
+            if (expNodeFormatado!=="5"){
+                motivo+=`experiencia menor que 5  em Node.Js ${expNodeFormatado}, `;
+            }
+            if (expBnacoDeDadosFormatado!=="5"){
+                motivo+=`experiencia menor que 5  em Banco de dados ${expBnacoDeDadosFormatado}`;
+            }
+            return {
+                message:"candidado não preencheu o requisito: ",
+                motivo:motivo
+            };
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
 module.exports = ApiService;

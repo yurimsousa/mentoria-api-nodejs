@@ -16,6 +16,8 @@ class ApiController{
      verificarJogador(nome,estadoCivil,funcao){
       return apiService.verificarJogador(nome,estadoCivil,funcao);
    }
-
+   verificarCandidado(expJava,expNode,expBancoDeDados){
+      return apiService.verificarCanditado(expJava,expNode,expBancoDeDados);
+   }
 }
 module.exports=ApiController;

@@ -86,5 +86,14 @@ app.get("/verificar-jogador", function (request, response) {
     return response.json(result);
 });
 
+app.get("/validar-candidato", function (request, response) {
+    const expJava= request.query.expJava;
+    const expNode= request.query.expNode;
+    const expBancoDeDados= request.query.expBancoDeDados;
+
+
+    const result = apiController.verificarCandidado(expJava, expNode, expBancoDeDados);
+    return response.json(result);
+});
 
 module.exports = app;
