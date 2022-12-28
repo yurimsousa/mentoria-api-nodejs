@@ -68,18 +68,18 @@ app.get("/aluno/:num1/:num2/:num3/:num4/:num5", function (resquest, response) {
 
 
 app.get("/verificar-nome", function (request, response) {
-    const nome= request.query.nome;
-    const cpf= request.query.cpf;
-    const estadoCivil= request.estadoCivil;
+    const nome = request.query.nome;
+    const cpf = request.query.cpf;
+    const estadoCivil = request.estadoCivil;
 
     const result = apiController.verificarNome(nome);
     return response.json(result);
 });
 
 app.get("/verificar-jogador", function (request, response) {
-    const nome= request.query.nome;
-    const estadoCivil= request.query.estadoCivil;
-    const funcao= request.query.funcao;
+    const nome = request.query.nome;
+    const estadoCivil = request.query.estadoCivil;
+    const funcao = request.query.funcao;
 
 
     const result = apiController.verificarJogador(nome, estadoCivil, funcao);
@@ -87,9 +87,9 @@ app.get("/verificar-jogador", function (request, response) {
 });
 
 app.get("/validar-candidato", function (request, response) {
-    const expJava= request.query.expJava;
-    const expNode= request.query.expNode;
-    const expBancoDeDados= request.query.expBancoDeDados;
+    const expJava = request.query.expJava;
+    const expNode = request.query.expNode;
+    const expBancoDeDados = request.query.expBancoDeDados;
 
 
     const result = apiController.verificarCandidado(expJava, expNode, expBancoDeDados);
@@ -102,6 +102,14 @@ app.get("/calculadora", function (request, response) {
     const num2 = request.query.num2;
 
     const result = apiController.calcular(acao, num1, num2);
+    return response.json(result);
+});
+
+
+app.get("/manipular-primeiro-array", function (request, response) {
+    const body = request.body;
+
+    const result = apiController.manipularArray(body);
     return response.json(result);
 });
 
