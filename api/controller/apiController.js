@@ -19,5 +19,8 @@ class ApiController{
    verificarCandidado(expJava,expNode,expBancoDeDados){
       return apiService.verificarCanditado(expJava,expNode,expBancoDeDados);
    }
+   calcular(acao,num1,num2){
+      return apiService.calcular(acao,num1,num2);
+   }
 }
 module.exports=ApiController;

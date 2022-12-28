@@ -96,4 +96,14 @@ app.get("/validar-candidato", function (request, response) {
     return response.json(result);
 });
 
+app.get("/calculadora", function (request, response) {
+    const acao = request.headers.acao;
+    const num1 = request.query.num1;
+    const num2 = request.query.num2;
+
+    const result = apiController.calcular(acao, num1, num2);
+    return response.json(result);
+});
+
+
 module.exports = app;

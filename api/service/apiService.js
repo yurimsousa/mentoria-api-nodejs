@@ -77,15 +77,30 @@ class ApiService {
         }
     }
 
-
-
-
-
-
-
-
-
-
+    calcular(acao,num1,num2){
+        let result = null;       
+        switch (acao){
+            case 'somar':
+                result = Number(num1) + Number(num2);
+            break;
+            case 'subtrair':
+                result = Number(num1) - Number(num2);
+            break;
+            case 'multiplicar':
+                result = Number(num1) * Number(num2);
+            break;
+            case 'dividir':
+                result = Number(num1) / Number(num2);
+            break;
+            
+            default:
+                result = "informe uma ação valida";
+                break; 
+   
+        }
+            
+        return result;
+    }
 
 }
 module.exports = ApiService;
