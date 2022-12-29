@@ -105,27 +105,46 @@ class ApiService {
     manipularArray(body) {
         let somaArray = 0;
         for (let contador = 0; contador < body.length; contador++) {
-        somaArray += body[contador];
-           
+            somaArray += body[contador];
+
         }
         return somaArray;
     }
-    
+
     validarNumeros(body) {
-        
-        let somaPares =  0;
+
+        let somaPares = 0;
         let somaImpares = 0;
-        
+
         for (let contador = 0; contador < body.length; contador++) {
             if (body[contador] % 2 == 0) {
-                somaPares += body[contador];    
-            }else{
+                somaPares += body[contador];
+            } else {
                 somaImpares += body[contador];
             }
 
         }
-        return {somaPares,
-                somaImpares};
+        return {
+            somaPares,
+            somaImpares
+        };
+    }
+
+    validaIdadePessoa(body) {
+        let qtdPessoaComMais25 = 0;
+        let qtdPessoaComMenos25 = 0;
+
+        for (let contador = 0; contador < body.length; contador++) {
+            if (body[contador].idade >= 25) {
+                qtdPessoaComMais25 += 1;
+            } else {
+                qtdPessoaComMenos25 += 1;
+            }
+        }
+        return {
+            pessoasComMais25: qtdPessoaComMais25,
+            pessoasComMenos25: qtdPessoaComMenos25
+        }
     }
 
 }

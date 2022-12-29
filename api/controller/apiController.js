@@ -26,12 +26,17 @@ class ApiController {
       return apiService.calcular(acao, num1, num2);
    }
 
-   manipularArray(body){
+   manipularArray(body) {
       return apiService.manipularArray(body);
    }
-   validarNumeros(body){
+   validarNumeros(body) {
       return apiService.validarNumeros(body);
    }
+
+   validaIdadePessoa(body){
+      return apiService.validaIdadePessoa(body);
+   }
+
 
 }
 module.exports = ApiController;

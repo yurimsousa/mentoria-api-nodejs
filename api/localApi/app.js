@@ -121,5 +121,14 @@ app.get("/validar-numeros", function (request, response) {
 });
 
 
+app.get("/validar-idade-pessoas", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.validaIdadePessoa(body);
+    return response.json(result);
+});
+
+
+
 
 module.exports = app;
