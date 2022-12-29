@@ -88,7 +88,7 @@ app.get("/verificar-jogador", function (request, response) {
 
 app.get("/validar-candidato", function (request, response) {
     const expJava = request.query.expJava;
-    const expNode = request.query.expNode;
+    const expNode = request.query.expNode;clear
     const expBancoDeDados = request.query.expBancoDeDados;
 
 
@@ -108,10 +108,18 @@ app.get("/calculadora", function (request, response) {
 
 app.get("/manipular-primeiro-array", function (request, response) {
     const body = request.body;
-
+    
     const result = apiController.manipularArray(body);
     return response.json(result);
 });
+
+app.get("/validar-numeros", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.validarNumeros(body);
+    return response.json(result);
+});
+
 
 
 module.exports = app;

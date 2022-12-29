@@ -29,5 +29,9 @@ class ApiController {
    manipularArray(body){
       return apiService.manipularArray(body);
    }
+   validarNumeros(body){
+      return apiService.validarNumeros(body);
+   }
+
 }
 module.exports = ApiController;
