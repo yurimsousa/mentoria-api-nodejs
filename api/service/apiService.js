@@ -148,19 +148,19 @@ class ApiService {
     }
 
     validaPessoa(body) {
-        let qtdPessoaComMais25 = 0;
-        let qtdPessoaComMenos25 = 0;
+        let qtdProgramadorMaior30 = 0;
 
         for (let contador = 0; contador < body.length; contador++) {
-            if (body[contador].idade >= 25) {
-                qtdPessoaComMais25 += 1;
-            } else {
-                qtdPessoaComMenos25 += 1;
+            if (body[contador].profissao.toLowerCase() === 'analista de sistemas' ||
+                body[contador].profissao.toLowerCase() === 'programador'
+            ) {
+                if (body[contador].idade >= 30) {
+                    qtdProgramadorMaior30 += 1;
+                }
             }
         }
         return {
-            pessoasComMais25: qtdPessoaComMais25,
-            pessoasComMenos25: qtdPessoaComMenos25
+            pessoasProgramadorOuAnalistaMaior30: qtdProgramadorMaior30,
         }
     }
 
