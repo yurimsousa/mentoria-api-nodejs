@@ -128,6 +128,12 @@ app.get("/validar-idade-pessoas", function (request, response) {
     return response.json(result);
 });
 
+app.get("/validar-pessoas", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.validaPessoa(body);
+    return response.json(result);
+});
 
 
 

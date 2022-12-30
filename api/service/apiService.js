@@ -147,5 +147,25 @@ class ApiService {
         }
     }
 
+    validaPessoa(body) {
+        let qtdPessoaComMais25 = 0;
+        let qtdPessoaComMenos25 = 0;
+
+        for (let contador = 0; contador < body.length; contador++) {
+            if (body[contador].idade >= 25) {
+                qtdPessoaComMais25 += 1;
+            } else {
+                qtdPessoaComMenos25 += 1;
+            }
+        }
+        return {
+            pessoasComMais25: qtdPessoaComMais25,
+            pessoasComMenos25: qtdPessoaComMenos25
+        }
+    }
+
+
+
+
 }
 module.exports = ApiService;
