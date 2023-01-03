@@ -44,6 +44,9 @@ class ApiController {
    validaMarca(body){
       return apiService.validaMarca(body);
    }
+   incluirNovoObjetoCarro(body){
+      return apiService.incluirNovoObjetoCarro(body);
+   }
 
 }
 module.exports = ApiController;

@@ -165,7 +165,7 @@ class ApiService {
     }
 
     validaMarca(body) {
-        
+
         let qtdMarcaFIAT = 0;
         let qtdMarcavolkwagem = 0;
         let qtdToyota = 0;
@@ -173,25 +173,24 @@ class ApiService {
 
 
         for (let contador = 0; contador < body.length; contador++) {
-           
-            if (body[contador].marca.toLowerCase() === 'fiat')
-            {
+
+            if (body[contador].marca.toLowerCase() === 'fiat') {
                 qtdMarcaFIAT += 1;
             }
-            if  (body[contador].marca.toLowerCase() === 'volkwagem'){
-            
+            if (body[contador].marca.toLowerCase() === 'volkwagem') {
+
                 qtdMarcavolkwagem += 1;
-                
+
             }
-            if  (body[contador].marca.toLowerCase() === 'toyota') {
-            
+            if (body[contador].marca.toLowerCase() === 'toyota') {
+
                 qtdToyota += 1;
-                
+
             }
-            if  (body[contador].marca.toLowerCase() === 'chevrolet'){
-            
-                qtdMarcaChevrolet += 1;  
-            }           
+            if (body[contador].marca.toLowerCase() === 'chevrolet') {
+
+                qtdMarcaChevrolet += 1;
+            }
 
         }
         return {
@@ -199,9 +198,22 @@ class ApiService {
             quatidadeVolkwagem: qtdMarcavolkwagem,
             quantidadeToyota: qtdToyota,
             quatidadeChevrolet: qtdMarcaChevrolet
-            
+
         }
-        
+
+    }
+
+    incluirNovoObjetoCarro(body) {
+        let arrRetornoFiat = [];
+
+        body.forEach(item => {
+            if (item.marca.toLowerCase() === 'fiat') {
+                arrRetornoFiat.push(item);
+            }
+        });
+
+        return arrRetornoFiat;
+
     }
 
 }

@@ -143,5 +143,13 @@ app.get("/validar-marcas", function (request, response) {
 });
 
 
+app.get("/incluir-carro-novo", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.incluirNovoObjetoCarro(body);
+    return response.json(result);
+});
+
+
 
 module.exports = app;
