@@ -164,8 +164,45 @@ class ApiService {
         }
     }
 
+    validaMarca(body) {
+        
+        let qtdMarcaFIAT = 0;
+        let qtdMarcavolkwagem = 0;
+        let qtdToyota = 0;
+        let qtdMarcaChevrolet = 0;
 
 
+        for (let contador = 0; contador < body.length; contador++) {
+           
+            if (body[contador].marca.toLowerCase() === 'fiat')
+            {
+                qtdMarcaFIAT += 1;
+            }
+            if  (body[contador].marca.toLowerCase() === 'volkwagem'){
+            
+                qtdMarcavolkwagem += 1;
+                
+            }
+            if  (body[contador].marca.toLowerCase() === 'toyota') {
+            
+                qtdToyota += 1;
+                
+            }
+            if  (body[contador].marca.toLowerCase() === 'chevrolet'){
+            
+                qtdMarcaChevrolet += 1;  
+            }           
+
+        }
+        return {
+            quantidadeFiat: qtdMarcaFIAT,
+            quatidadeVolkwagem: qtdMarcavolkwagem,
+            quantidadeToyota: qtdToyota,
+            quatidadeChevrolet: qtdMarcaChevrolet
+            
+        }
+        
+    }
 
 }
 module.exports = ApiService;

@@ -41,6 +41,9 @@ class ApiController {
       return apiService.validaPessoa(body);
    }
 
+   validaMarca(body){
+      return apiService.validaMarca(body);
+   }
 
 }
 module.exports = ApiController;

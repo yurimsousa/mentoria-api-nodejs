@@ -135,6 +135,13 @@ app.get("/validar-pessoas", function (request, response) {
     return response.json(result);
 });
 
+app.get("/validar-marcas", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.validaMarca(body);
+    return response.json(result);
+});
+
 
 
 module.exports = app;
