@@ -48,5 +48,8 @@ class ApiController {
       return apiService.incluirNovoObjetoCarro(body);
    }
 
+   agruparCarros(body){
+      return apiService.agruparCarros(body);
+   }
 }
 module.exports = ApiController;

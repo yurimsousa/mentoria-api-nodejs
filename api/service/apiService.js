@@ -216,5 +216,38 @@ class ApiService {
 
     }
 
+    agruparCarros(body) {
+        let carrosFiat = [];
+        let carrosVolkWagem = [];
+        let carrosChevrolet = [];
+        let carrosToyota = [];
+        
+        body.forEach(item => {
+            if (item.marca.toLowerCase() === 'fiat') {
+                carrosFiat.push(item);
+            }
+            if (item.marca.toLowerCase() === 'volkwagem'){
+                carrosVolkWagem.push(item);
+            }
+            if (item.marca.toLowerCase() === 'chevrolet'){
+                carrosChevrolet.push(item);
+            }
+            if (item.marca.toLowerCase() === 'toyota'){
+                carrosToyota.push(item);
+            }
+        });
+
+        return{
+            carrosFiat,
+            carrosVolkWagem,
+            carrosChevrolet,
+            carrosToyota
+
+        }
+    }
+
+
+
+
 }
 module.exports = ApiService;

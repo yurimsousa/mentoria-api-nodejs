@@ -150,6 +150,13 @@ app.get("/incluir-carro-novo", function (request, response) {
     return response.json(result);
 });
 
+app.get("/agrupar-carros", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.agruparCarros(body);
+    return response.json(result);
+});
+
 
 
 module.exports = app;
