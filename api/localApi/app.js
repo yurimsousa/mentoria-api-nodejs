@@ -157,6 +157,12 @@ app.get("/agrupar-carros", function (request, response) {
     return response.json(result);
 });
 
+app.get("/consultar-cep", async function (request, response) {
+    const body = request.body;
+    
+    const result = await apiController.consultarCep(body);
+    return response.json(result);
+});
 
 
 module.exports = app;

@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 class ApiService {
 
     calcularMedia(num1, num2, num3, num4, num5) {
@@ -216,7 +218,7 @@ class ApiService {
 
     }
 
-    agruparCarros(body) {
+     agruparCarros(body) {
         let carrosFiat = [];
         let carrosVolkWagem = [];
         let carrosChevrolet = [];
@@ -245,7 +247,13 @@ class ApiService {
 
         }
     }
+    async consultarCep(body) {
+        const result = await axios.get('http://viacep.com.br/ws/72120190/json/');
 
+        return result;
+
+
+    }
 
 
 

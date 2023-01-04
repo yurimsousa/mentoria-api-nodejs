@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/yurimsousa/mentoria-api-nodejs#readme",
   "dependencies": {
+    "axios": "^1.2.2",
     "express": "^4.18.2",
     "nodemon": "^2.0.20"
   },
-  "devDependencies": {},
   "keywords": []
 }

@@ -51,5 +51,8 @@ class ApiController {
    agruparCarros(body){
       return apiService.agruparCarros(body);
    }
+   async consultarCep(body){
+      return await apiService.consultarCep(body);
+   }
 }
 module.exports = ApiController;
