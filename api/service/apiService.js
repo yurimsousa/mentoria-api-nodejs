@@ -218,28 +218,28 @@ class ApiService {
 
     }
 
-     agruparCarros(body) {
+    agruparCarros(body) {
         let carrosFiat = [];
         let carrosVolkWagem = [];
         let carrosChevrolet = [];
         let carrosToyota = [];
-        
+
         body.forEach(item => {
             if (item.marca.toLowerCase() === 'fiat') {
                 carrosFiat.push(item);
             }
-            if (item.marca.toLowerCase() === 'volkwagem'){
+            if (item.marca.toLowerCase() === 'volkwagem') {
                 carrosVolkWagem.push(item);
             }
-            if (item.marca.toLowerCase() === 'chevrolet'){
+            if (item.marca.toLowerCase() === 'chevrolet') {
                 carrosChevrolet.push(item);
             }
-            if (item.marca.toLowerCase() === 'toyota'){
+            if (item.marca.toLowerCase() === 'toyota') {
                 carrosToyota.push(item);
             }
         });
 
-        return{
+        return {
             carrosFiat,
             carrosVolkWagem,
             carrosChevrolet,
@@ -247,12 +247,17 @@ class ApiService {
 
         }
     }
-    async consultarCep(body) {
-        const result = await axios.get('http://viacep.com.br/ws/72120190/json/');
 
-        return result;
+    async consultarCep() {
+        try {
+            const result = await axios.get('http://viacep.com.br/ws/72120190/json/');
 
+            return result.data;
 
+        } catch (error) {
+            console.log(error)
+            throw new Error(error);
+        }
     }
 
 
