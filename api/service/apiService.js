@@ -260,6 +260,19 @@ class ApiService {
         }
     }
 
+    async consultarCep2(cep) {
+        try {
+            
+            const result = await axios.get(`http://viacep.com.br/ws/${cep}/json/`);
+
+            return result.data;
+
+        } catch (error) {
+            console.log(error)
+            throw new Error(error);
+        }
+    }
+
 
 
 }

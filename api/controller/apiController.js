@@ -54,5 +54,8 @@ class ApiController {
    async consultarCep(){
       return await apiService.consultarCep();
    }
+  async consultarCep2(cep){
+      return await apiService.consultarCep2(cep);
+   }
 }
 module.exports = ApiController;

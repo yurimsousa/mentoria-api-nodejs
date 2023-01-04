@@ -162,5 +162,11 @@ app.get("/consultar-cep", async function (request, response) {
     return response.json(result);
 });
 
+app.get("/consultar-cep2/:cep", async function (resquest, response) {
+    const cep = Number(resquest.params.cep);
+    const result = await apiController.consultarCep2(cep);
+    return response.json(result);
+});
+
 
 module.exports = app;
