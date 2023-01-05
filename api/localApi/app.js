@@ -168,5 +168,18 @@ app.get("/consultar-cep2/:cep", async function (resquest, response) {
     return response.json(result);
 });
 
+app.get("/verificarPessoaIdade", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.verificarPessoaIdade(body);
+    return response.json(result);
+});
+
+app.get("/verificarCidadeIdade", function (request, response) {
+    const body = request.body;
+    
+    const result = apiController.verificarCidadeIdade(body);
+    return response.json(result);
+});
 
 module.exports = app;

@@ -57,5 +57,12 @@ class ApiController {
   async consultarCep2(cep){
       return await apiService.consultarCep2(cep);
    }
+   async verificarPessoaIdade(cep){
+      return await apiService.verificarPessoaIdade(cep);
+   }
+     verificarCidadeIdade(body){
+      return apiService.verificarCidadeIdade(body);
+   }
+
 }
 module.exports = ApiController;

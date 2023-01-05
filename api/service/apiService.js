@@ -273,7 +273,22 @@ class ApiService {
         }
     }
 
+     verificarCidadeIdade(body) {
+        let pessoasTagua = [];
 
+        for (let contador = 0; contador < body.length; contador++){
+           
+            if (body[contador].nome.toLowerCase() === 'iuri') {
+                pessoasTagua.push(item);
+            }
+            
+       
+        }
+        
+     }   
 
+          
+          
+    
 }
 module.exports = ApiService;
