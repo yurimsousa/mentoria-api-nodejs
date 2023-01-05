@@ -88,7 +88,7 @@ app.get("/verificar-jogador", function (request, response) {
 
 app.get("/validar-candidato", function (request, response) {
     const expJava = request.query.expJava;
-    const expNode = request.query.expNode;clear
+    const expNode = request.query.expNode; clear
     const expBancoDeDados = request.query.expBancoDeDados;
 
 
@@ -108,14 +108,14 @@ app.get("/calculadora", function (request, response) {
 
 app.get("/manipular-primeiro-array", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.manipularArray(body);
     return response.json(result);
 });
 
 app.get("/validar-numeros", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.validarNumeros(body);
     return response.json(result);
 });
@@ -123,21 +123,21 @@ app.get("/validar-numeros", function (request, response) {
 
 app.get("/validar-idade-pessoas", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.validaIdadePessoa(body);
     return response.json(result);
 });
 
 app.get("/validar-pessoas", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.validaPessoa(body);
     return response.json(result);
 });
 
 app.get("/validar-marcas", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.validaMarca(body);
     return response.json(result);
 });
@@ -145,14 +145,14 @@ app.get("/validar-marcas", function (request, response) {
 
 app.get("/incluir-carro-novo", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.incluirNovoObjetoCarro(body);
     return response.json(result);
 });
 
 app.get("/agrupar-carros", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.agruparCarros(body);
     return response.json(result);
 });
@@ -170,15 +170,15 @@ app.get("/consultar-cep2/:cep", async function (resquest, response) {
 
 app.get("/verificarPessoaIdade", function (request, response) {
     const body = request.body;
-    
+
     const result = apiController.verificarPessoaIdade(body);
     return response.json(result);
 });
 
-app.get("/verificarCidadeIdade", function (request, response) {
+app.get("/verificarCidadeIdade", async function (request, response) {
     const body = request.body;
-    
-    const result = apiController.verificarCidadeIdade(body);
+
+    const result = await apiController.verificarCidadeIdade(body);
     return response.json(result);
 });
 

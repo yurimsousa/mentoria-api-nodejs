@@ -33,35 +33,36 @@ class ApiController {
       return apiService.validarNumeros(body);
    }
 
-   validaIdadePessoa(body){
+   validaIdadePessoa(body) {
       return apiService.validaIdadePessoa(body);
    }
 
-   validaPessoa(body){
+   validaPessoa(body) {
       return apiService.validaPessoa(body);
    }
 
-   validaMarca(body){
+   validaMarca(body) {
       return apiService.validaMarca(body);
    }
-   incluirNovoObjetoCarro(body){
+   incluirNovoObjetoCarro(body) {
       return apiService.incluirNovoObjetoCarro(body);
    }
 
-   agruparCarros(body){
+   agruparCarros(body) {
       return apiService.agruparCarros(body);
    }
-   async consultarCep(){
+   async consultarCep() {
       return await apiService.consultarCep();
    }
-  async consultarCep2(cep){
+   async consultarCep2(cep) {
       return await apiService.consultarCep2(cep);
    }
-   async verificarPessoaIdade(cep){
+   async verificarPessoaIdade(cep) {
       return await apiService.verificarPessoaIdade(cep);
    }
-     verificarCidadeIdade(body){
-      return apiService.verificarCidadeIdade(body);
+   
+   async verificarCidadeIdade(body) {
+      return await apiService.verificarCidadeIdade(body);
    }
 
 }

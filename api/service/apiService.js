@@ -262,7 +262,7 @@ class ApiService {
 
     async consultarCep2(cep) {
         try {
-            
+
             const result = await axios.get(`http://viacep.com.br/ws/${cep}/json/`);
 
             return result.data;
@@ -273,22 +273,29 @@ class ApiService {
         }
     }
 
-     verificarCidadeIdade(body) {
+    async verificarCidadeIdade(body) {
         let pessoasTagua = [];
+        let reqCorreio;
+        for (let contador = 0; contador < body.length; contador++) {
 
-        for (let contador = 0; contador < body.length; contador++){
-           
-            if (body[contador].nome.toLowerCase() === 'iuri') {
-                pessoasTagua.push(item);
+            reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
+            let bairro = reqCorreio.data.bairro;
+            bairro = bairro.substring(0, 10);
+
+            if (bairro.toLowerCase() === 'taguatinga' && body[contador].idade >= 25) {
+                pessoasTagua.push({
+                    pessoaQueMoraEmTagua: body[contador].nome,
+                    idadePessoa: body[contador].idade
+                });
             }
-            
-       
         }
-        
-     }   
 
-          
-          
-    
+        return pessoasTagua;
+
+    }
+
+
+
+
 }
 module.exports = ApiService;
