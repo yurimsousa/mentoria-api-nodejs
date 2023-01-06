@@ -294,21 +294,23 @@ class ApiService {
 
     }
 
-    async verificarUf(body){
+    async verificarUf(body) {
         let ufVerificadas = [];
         let reqCorreio;
 
-        for (let contador = 0; contador <body.length; contador++){
-            
+        for (let contador = 0; contador < body.length; contador++) {
+
             reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
             let uf = reqCorreio.data.uf;
 
-        if (uf.toLowerCase() === body[contador].uf){
-            ufVerificadas.push({
-                pessoasComUfVerificadas:body[contador].nome,
-            });
-        }    
-            
+            console.log('uf user', body[contador].uf);
+            console.log('uf correio', uf);
+            if (uf.toLowerCase() === body[contador].uf.toLowerCase()) {
+                ufVerificadas.push({
+                    pessoasComUfVerificadas: body[contador].nome,
+                });
+            }
+
 
         }
 
