@@ -294,7 +294,26 @@ class ApiService {
 
     }
 
+    async verificarUf(body){
+        let ufVerificadas = [];
+        let reqCorreio;
 
+        for (let contador = 0; contador <body.length; contador++){
+            
+            reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
+            let uf = reqCorreio.data.uf;
+
+        if (uf.toLowerCase() === 'df'){
+            ufVerificadas.push({
+                pessoasComUfVerificadas:body[contador].nome,
+            })
+        }    
+            
+
+        }
+
+        return ufVerificadas;
+    }
 
 
 }

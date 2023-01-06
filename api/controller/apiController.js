@@ -57,12 +57,13 @@ class ApiController {
    async consultarCep2(cep) {
       return await apiService.consultarCep2(cep);
    }
-   async verificarPessoaIdade(cep) {
-      return await apiService.verificarPessoaIdade(cep);
-   }
    
-   async verificarCidadeIdade(body) {
+   async verificarPessoaIdade(body) {
       return await apiService.verificarCidadeIdade(body);
+   }
+
+   async verificarUf(body) {
+      return await apiService.verificarUf(body);
    }
 
 }

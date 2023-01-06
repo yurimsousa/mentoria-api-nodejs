@@ -178,7 +178,14 @@ app.get("/verificarPessoaIdade", function (request, response) {
 app.get("/verificarCidadeIdade", async function (request, response) {
     const body = request.body;
 
-    const result = await apiController.verificarCidadeIdade(body);
+    const result = await apiController.verificarPessoaIdade(body);
+    return response.json(result);
+});
+
+app.get("/verificarUf", async function (request, response) {
+    const body = request.body;
+
+    const result = await apiController.verificarUf(body);
     return response.json(result);
 });
 
