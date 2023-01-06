@@ -303,8 +303,6 @@ class ApiService {
             reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
             let uf = reqCorreio.data.uf;
 
-            console.log('uf user', body[contador].uf);
-            console.log('uf correio', uf);
             if (uf.toLowerCase() === body[contador].uf.toLowerCase()) {
                 ufVerificadas.push({
                     pessoasComUfVerificadas: body[contador].nome,
