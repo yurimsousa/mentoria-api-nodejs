@@ -296,6 +296,7 @@ class ApiService {
 
     async verificarUf(body) {
         let ufVerificadas = [];
+        let ufInvalida = [];
         let reqCorreio;
 
         for (let contador = 0; contador < body.length; contador++) {
@@ -307,13 +308,20 @@ class ApiService {
                 ufVerificadas.push({
                     pessoasComUfVerificadas: body[contador].nome,
                 });
+            } else{
+                ufInvalida.push({
+                    ufInvalidas: body[contador].nome,
+                });
             }
 
 
         }
 
-        return ufVerificadas;
-    }
+        return {
+            ufVerificadas,
+            ufInvalida
+        }
+        }
 
 
 }
