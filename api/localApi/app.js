@@ -190,9 +190,7 @@ app.get("/verificarUf", async function (request, response) {
 });
 
 app.get("/consultarEstado", async function (request, response) {
-    const body = request.body;
-
-    const result = await apiController.consultarEstado(body);
+    const result = await apiController.consultarEstado();
     return response.json(result);
 });
 

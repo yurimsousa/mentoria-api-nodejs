@@ -301,51 +301,58 @@ class ApiService {
 
         for (let contador = 0; contador < body.length; contador++) {
 
-           const reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
+            const reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
             let uf = reqCorreio.data.uf;
 
             if (uf.toLowerCase() === body[contador].uf.toLowerCase()) {
                 ufVerificadas.push({
                     pessoasComUfVerificadas: body[contador].nome,
                 });
-            } else{
+            } else {
                 ufInvalida.push({
                     ufInvalidas: body[contador].nome,
                 });
             }
-            
+
 
         }
         return {
             ufVerificadas,
             ufInvalida
         }
+    }
+
+    async consultarEstado() {
+
+        let arrFormatado = [];
+        const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`);
+        if (result.data.length > 0) {
+            result.data.forEach(item => {
+                arrFormatado.push({
+                    sigla: item.sigla,
+                    nome: item.nome,
+                    regiao: item.regiao.nome
+                })
+            });
+            return arrFormatado;
         }
+    }
 
-        async consultarEstado() {
-            let i = 0;
-            let estados = [];
+    async consultarIdEstados(id) {
 
-            for(let contador = 0; contador<i.length; contador++){
-                const req = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`.$[i]);
-                let resp1 = req.data.nome;
-                console.log(resp1);
+        const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}`);
+
+        if (result.data.sigla) {
+            return {
+                sigla: result.data.sigla,
+                estado: result.data.nome,
+                regiao: result.data.regiao
             }
-            
-
         }
-    
-        async consultarIdEstados(id) {
-           
-            const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}`);
-
-            return [
-                result.data.sigla,
-                result.data.nome,
-                result.data.regiao.nome
-            ]
-                       
-        }    
+        return {
+            message: "Informação não encontrada com o id informado"
+        }
+    }
 
 }
 module.exports = ApiService;
