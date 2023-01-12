@@ -189,4 +189,22 @@ app.get("/verificarUf", async function (request, response) {
     return response.json(result);
 });
 
+app.get("/consultarEstado", async function (request, response) {
+    const body = request.body;
+
+    const result = await apiController.consultarEstado(body);
+    return response.json(result);
+});
+
+
+app.get("/consultarIdEstados/:id", async function (request, response) {
+    const id =  Number(request.params.id);   
+    const result = await apiController.consultarIdEstados(id);
+    return response.json(result);
+});
+
+
+
+
+
 module.exports = app;

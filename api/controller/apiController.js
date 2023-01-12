@@ -65,6 +65,12 @@ class ApiController {
    async verificarUf(body) {
       return await apiService.verificarUf(body);
    }
+   async consultarEstado() {
+      return await apiService.consultarEstado();
+   }
 
+   async consultarIdEstados(id) {
+      return await apiService.consultarIdEstados(id);
+   }
 }
 module.exports = ApiController;

@@ -301,7 +301,7 @@ class ApiService {
 
         for (let contador = 0; contador < body.length; contador++) {
 
-            reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
+           const reqCorreio = await axios.get(`http://viacep.com.br/ws/${body[contador].cep}/json/`);
             let uf = reqCorreio.data.uf;
 
             if (uf.toLowerCase() === body[contador].uf.toLowerCase()) {
@@ -313,16 +313,39 @@ class ApiService {
                     ufInvalidas: body[contador].nome,
                 });
             }
-
+            
 
         }
-
         return {
             ufVerificadas,
             ufInvalida
         }
         }
 
+        async consultarEstado() {
+            let i = 0;
+            let estados = [];
+
+            for(let contador = 0; contador<i.length; contador++){
+                const req = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`.$[i]);
+                let resp1 = req.data.nome;
+                console.log(resp1);
+            }
+            
+
+        }
+    
+        async consultarIdEstados(id) {
+           
+            const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}`);
+
+            return [
+                result.data.sigla,
+                result.data.nome,
+                result.data.regiao.nome
+            ]
+                       
+        }    
 
 }
 module.exports = ApiService;
