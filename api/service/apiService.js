@@ -354,5 +354,23 @@ class ApiService {
         }
     }
 
+    async consultaSiglaEstado(sigla) {
+        console.log(sigla);        
+        const si = sigla;
+        
+        const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${si}`);
+        
+        if (result.data.sigla) {
+           return{
+            sigla: result.data.sigla,
+            estado: result.data.nome,
+            regiao: result.data.regiao
+           }
+           
+        }
+    }
+
+
+
 }
 module.exports = ApiService;

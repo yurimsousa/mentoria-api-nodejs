@@ -201,6 +201,12 @@ app.get("/consultarIdEstados/:id", async function (request, response) {
     return response.json(result);
 });
 
+app.get("/consultaSiglaEstado", async function (request, response) {
+    const sigla = request.query.sigla;
+    
+    const result = await apiController.consultaSiglaEstado(sigla);
+    return response.json(result);
+});
 
 
 
