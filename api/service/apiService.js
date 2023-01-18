@@ -370,7 +370,24 @@ class ApiService {
         }
     }
 
-
+    async consultaNomeEstado(nome) {
+        const no = nome;
+        let arrFormatado = [];
+        
+        const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`);
+               
+            result.data.forEach(item => {
+            if (item.nome.toLowerCase() === no ) {
+                arrFormatado.push({
+                    sigla: item.sigla,
+                    nome: item.nome,
+                    regiao: item.regiao.nome
+                })
+            }
+            });
+            return arrFormatado;
+         
+    }
 
 }
 module.exports = ApiService;

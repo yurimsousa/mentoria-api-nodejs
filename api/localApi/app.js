@@ -1,5 +1,7 @@
 const ApiController = require("../controller/apiController");
+const FuncionarioController = require("../controller/funcionarioController");
 const apiController = new ApiController();
+const funcionarioController = new FuncionarioController();
 
 const express = require("express");
 const app = express();
@@ -205,6 +207,19 @@ app.get("/consultaSiglaEstado", async function (request, response) {
     const sigla = request.query.sigla;
     
     const result = await apiController.consultaSiglaEstado(sigla);
+    return response.json(result);
+});
+
+app.get("/consultaNomeEstado", async function (request, response) {
+    const nome = request.query.nome;
+    
+    const result = await apiController.consultaNomeEstado(nome);
+    return response.json(result);
+});
+
+app.get("/lista-funcionario", async function (request, response) {
+    
+    const result = await funcionarioController.listarFuncionario();
     return response.json(result);
 });
 

@@ -76,5 +76,10 @@ class ApiController {
    async consultaSiglaEstado(sigla) {
       return await apiService.consultaSiglaEstado(sigla);
    }
+
+   async consultaNomeEstado(nome) {
+      return await apiService.consultaNomeEstado(nome);
+   }
+
 }
 module.exports = ApiController;
