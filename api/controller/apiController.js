@@ -80,6 +80,6 @@ class ApiController {
    async consultaNomeEstado(nome) {
       return await apiService.consultaNomeEstado(nome);
    }
-
+   
 }
 module.exports = ApiController;

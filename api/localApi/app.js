@@ -223,7 +223,11 @@ app.get("/lista-funcionario", async function (request, response) {
     return response.json(result);
 });
 
-
+app.get("/consultarIdFuncionario/:id", async function (request, response) {
+    const id =  Number(request.params.id);   
+    const result = await funcionarioController.consultarIdEstados(id);
+    return response.json(result);
+});
 
 
 module.exports = app;

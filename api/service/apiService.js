@@ -383,10 +383,10 @@ class ApiService {
                     nome: item.nome,
                     regiao: item.regiao.nome
                 })
-            }
+            } 
             });
             return arrFormatado;
-         
+        
     }
 
 }

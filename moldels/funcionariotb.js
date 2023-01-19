@@ -9,6 +9,7 @@ class Funcionario extends Model {
                     autoIncrement: true,
                     primaryKey: true,
                     field: 'ID_FUNCIONARIO'
+                    
                 },
                 idade: {
                     type: Sequelize.BIGINT,
