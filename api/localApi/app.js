@@ -198,36 +198,86 @@ app.get("/consultarEstado", async function (request, response) {
 
 
 app.get("/consultarIdEstados/:id", async function (request, response) {
-    const id =  Number(request.params.id);   
+    const id = Number(request.params.id);
     const result = await apiController.consultarIdEstados(id);
     return response.json(result);
 });
 
 app.get("/consultaSiglaEstado", async function (request, response) {
     const sigla = request.query.sigla;
-    
+
     const result = await apiController.consultaSiglaEstado(sigla);
     return response.json(result);
 });
 
 app.get("/consultaNomeEstado", async function (request, response) {
     const nome = request.query.nome;
-    
+
     const result = await apiController.consultaNomeEstado(nome);
     return response.json(result);
 });
 
 app.get("/lista-funcionario", async function (request, response) {
-    
+
     const result = await funcionarioController.listarFuncionario();
     return response.json(result);
 });
 
 app.get("/consultarIdFuncionario/:id", async function (request, response) {
-    const id =  Number(request.params.id);   
+    const id = Number(request.params.id);
     const result = await funcionarioController.consultarIdEstados(id);
     return response.json(result);
 });
 
+app.get("/consultarNomeFuncionario/:nome", async function (request, response) {
+    const nome = request.params.nome;
+    const result = await funcionarioController.consultarNomeFuncionario(nome);
+    return response.json(result);
+});
+
+app.get("/consultarFuncionarioIdade/:idade", async function (resquest, response) {
+    const idade = Number(resquest.params.idade);
+    const result = await funcionarioController.consultarFuncionarioIdade(idade);
+    return response.json(result);
+});
+
+app.get("/consultarFuncionarioDepartamento/:dep", async function (resquest, response) {
+    const dep = (resquest.params.dep);
+    const result = await funcionarioController.consultarFuncionarioDepartamento(dep);
+    return response.json(result);
+});
+
+app.get("/consultarFuncionarioEspecifico", async function (request, response) {
+    const idade = request.query.idade;
+    const cargo = request.query.cargo;
+    const departamento = request.query.departamento;
+
+    const result = await funcionarioController.consultarFuncionarioEspecifico(idade, cargo, departamento);
+    return response.json(result);
+});
+
+app.post("/inserirFuncionario", async function (request, response) {
+    try {
+        const body = request.body;
+        const result = await funcionarioController.inserirFuncionario(body);
+        return response.json(result);
+    } catch (error) {
+        throw new Error(`erro ao inserir funcionario`);
+    }
+});
+app.put("/editarFuncionario/:id", async function (request, response) {
+    
+        const id = request.params.id;
+        const body = request.body;
+        const result = await funcionarioController.editarFuncionario(body,id);
+        return response.json(result);  
+});
+app.delete("/deletarFuncionario/:id", async function (request, response) {
+    
+    const id = request.params.id;
+    const body = request.body;
+    const result = await funcionarioController.deletarFuncionario(body,id);
+    return response.json(result);  
+});
 
 module.exports = app;

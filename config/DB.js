@@ -3,11 +3,11 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const get = () => {
-    const dbName = process.env.DB_NAME;
-    const dbUser = process.env.DB_USER;
-    const dbPassword = '';
-    const dbHost = process.env.DB_HOST;
-    const dbPort = 3307;
+    const dbName = 'funcionarios';
+    const dbUser = 'admin';
+    const dbPassword = '12345678';
+    const dbHost = 'database-1.cjr2rlksblsf.us-east-1.rds.amazonaws.com';
+    const dbPort = 3306;
     const dbDialect = 'mysql';
    console.log(dbName);
     return {
