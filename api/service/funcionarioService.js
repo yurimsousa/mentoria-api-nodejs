@@ -163,12 +163,13 @@ class FuncionarioService {
             const { nome, idade, cargo, departamento } = body;
 
             const user = await Funcionario.findAll({where:{idFuncionario:id}});
-            if (!user) {
+            if (user.length===0) {
                 return {
                     message: "usuario nao encontrado"               
                 }    
             } else {
                 await Funcionario.destroy({where:{idFuncionario:id}});
+                return {message: "usuario excluido com sucesso!"}
             }
             
         } catch (error) {
