@@ -48,6 +48,10 @@ class FuncionarioController{
         const funcionarioService = new FuncionarioService();
         return await funcionarioService.deletarFuncionario(body,id);
      }
+     async editarTodosFuncionario(body) {
+        const funcionarioService = new FuncionarioService();
+        return await funcionarioService.editarTodosFuncionario(body);
+     }
 }
 
 module.exports = FuncionarioController;

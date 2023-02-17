@@ -279,5 +279,12 @@ app.delete("/deletarFuncionario/:id", async function (request, response) {
     const result = await funcionarioController.deletarFuncionario(body,id);
     return response.json(result);  
 });
+app.patch("/editarTodosFuncionario", async function (request, response) {
+    
+    const body = request.body;
+    const result = await funcionarioController.editarTodosFuncionario(body);
+    return response.json(result);  
+});
+
 
 module.exports = app;
