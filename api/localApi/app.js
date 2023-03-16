@@ -203,21 +203,21 @@ app.get("/consultarIdEstados/:id", async function (request, response) {
     return response.json(result);
 });
 
-app.get("/consultaSiglaEstado", async function (request, response) {
+app.get("/consultaSiglaEstado/:sigla", async function (request, response) {
     const sigla = request.query.sigla;
 
     const result = await apiController.consultaSiglaEstado(sigla);
     return response.json(result);
 });
 
-app.get("/consultaNomeEstado", async function (request, response) {
+app.get("/consultaNomeEstado/:nome", async function (request, response) {
     const nome = request.query.nome;
 
     const result = await apiController.consultaNomeEstado(nome);
     return response.json(result);
 });
 
-app.get("/lista-funcionario", async function (request, response) {
+app.get("/lista-funcionario", async     function (request, response) {
 
     const result = await funcionarioController.listarFuncionario();
     return response.json(result);
@@ -284,6 +284,32 @@ app.patch("/editarTodosFuncionario", async function (request, response) {
     const body = request.body;
     const result = await funcionarioController.editarTodosFuncionario(body);
     return response.json(result);  
+});
+app.post("/incluirFuncionario", async function (request, response) {
+    
+    const body = request.body;
+    const result = await funcionarioController.incluirFuncionario(body);
+    return response.json(result);  
+});
+app.get("/consultarRegiao/:nome", async function (request, response) {
+
+    const nome = request.params.nome ;
+    const result = await apiController.consultarRegiao(nome);
+    return response.json(result);
+});
+
+app.get("/consultarEstado/:nome", async function (request, response) {
+
+    const nome = request.params.nome ;
+    const result = await apiController.consultarEstado2(nome);
+    return response.json(result);
+});
+
+app.get("/consultarMunicipio/:nome", async function (request, response) {
+
+    const nome = request.params.nome ;
+    const result = await apiController.consultarMunicipio(nome);
+    return response.json(result);
 });
 
 

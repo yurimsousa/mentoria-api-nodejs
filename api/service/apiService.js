@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require ('axios');
 
 class ApiService {
 
@@ -375,6 +375,7 @@ class ApiService {
         let arrFormatado = [];
         
         const result = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`);
+        console.log(result);
                
             result.data.forEach(item => {
             if (item.nome.toLowerCase() === no ) {
@@ -389,5 +390,43 @@ class ApiService {
         
     }
 
+    async consultarRegiao(nome) {
+        
+        const result = await axios.get(`http://servicodados.ibge.gov.br/api/v1/localidades/estados/`);
+        
+        const regiaoFiltrada = result.data.filter(objeto => objeto.regiao.nome.toLowerCase() === nome);
+        
+        return regiaoFiltrada;
+    }
+
+    async consultarEstado2(nome) {
+        
+        const result = await axios.get(`http://servicodados.ibge.gov.br/api/v1/localidades/estados/`);
+        
+        const estadoFiltrada = result.data.filter(objeto => objeto.sigla.toLowerCase() === nome);
+        
+        return {
+            id:estadoFiltrada[0].id,
+            nome:estadoFiltrada[0].nome,
+        };
+    }
+
+    async consultarMunicipio(nome) {
+        let arFotmatado = []
+
+        const result = await axios.get(`http://servicodados.ibge.gov.br/api/v1/localidades/estados/${nome}/municipios`);
+        
+        result.data.forEach(item => {
+            if (item.microrregiao.mesorregiao.UF.sigla.toLowerCase() === nome ) {
+                arFotmatado.push({
+                    id: item.id,
+                    nome: item.nome,
+                })
+            } 
+            });
+            return arFotmatado;
+        
+        
+    }
 }
 module.exports = ApiService;
